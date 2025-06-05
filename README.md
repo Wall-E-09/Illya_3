@@ -116,3 +116,8 @@ void handle_signal(int signum) {
             break;
     }
 }
+
+
+
+serhii@serhii-VirtualBox:~/libux_daemon_lab$ kill -USR1 <PID>
+bash: syntax error near unexpected token `newline'
