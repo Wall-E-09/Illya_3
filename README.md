@@ -120,3 +120,9 @@ void handle_signal(int signum) {
             break;
     }
 }
+
+
+serhii@serhii-VirtualBox:~/Ilya_3$ tail -f /var/log/userlog
+tail: cannot open '/var/log/userlog' for reading: No such file or directory
+tail: no files remaining
+serhii@serhii-VirtualBox:~
