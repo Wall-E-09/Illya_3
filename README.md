@@ -16,7 +16,7 @@ int main() {
     // Перетворення на демона
     daemonize();
     
-    // Встановлення обробників сигналів (надійний спосіб)
+    // Встановлення обробників сигналів
     struct sigaction sa;
     sa.sa_handler = handle_signal;
     sigemptyset(&sa.sa_mask);
@@ -111,18 +111,8 @@ void handle_signal(int signum) {
             closelog();
             exit(EXIT_SUCCESS);
             break;
-        case SIGHUP:
-            syslog(LOG_INFO, "Received hangup signal (SIGHUP), reinitializing");
-            // Тут можна додати код для перечитання конфігураційних файлів
-            break;
         default:
             syslog(LOG_WARNING, "Received unknown signal %d", signum);
             break;
     }
 }
-
-
-serhii@serhii-VirtualBox:~/Ilya_3$ tail -f /var/log/userlog
-tail: cannot open '/var/log/userlog' for reading: No such file or directory
-tail: no files remaining
-serhii@serhii-VirtualBox:~
